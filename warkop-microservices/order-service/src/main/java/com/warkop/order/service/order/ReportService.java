@@ -23,11 +23,6 @@ public class ReportService {
     @Autowired
     private OrderRepository orderRepository;
 
-    /**
-     * [JAVA STREAM]
-     * Semua statistik dihitung in-memory dengan Stream API —
-     * pembanding dari agregasi native SQL di OrderRepository.
-     */
     public OrderStatisticsDTO getOrderStatistics() {
 
         List<OrderModel> orders = orderRepository.findAll();

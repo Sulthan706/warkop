@@ -31,13 +31,6 @@ public class OrderService {
         return orderRepository.getOrderByStatus(status.toUpperCase());
     }
 
-    /**
-     * [MICROSERVICES] Alur pembuatan order lintas service:
-     * 1. Validasi request
-     * 2. Ambil detail produk dari product-service (HTTP GET)
-     * 3. Kurangi stok di product-service (HTTP POST, atomik di database sana)
-     * 4. Simpan order di database milik order-service
-     */
     public void submitOrder(OrderSubmitRequestDTO request) throws CustomExceptionDTO {
 
         if (request.getCustomerName() == null || request.getCustomerName().isBlank()) {

@@ -94,7 +94,6 @@ public class ProductController {
         HandlerResponse.responseSuccessOK(response, "Insert Produk Berhasil");
     }
 
-    // Dipanggil order-service (komunikasi antar microservice)
     @PostMapping("/decrease-stock")
     public void decreaseStock(HttpServletResponse response,
                               @RequestParam Integer productId,

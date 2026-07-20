@@ -5,9 +5,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.time.Clock;
 
-/**
- * [SPRING IoC] Pendaftaran bean manual lewat @Configuration + @Bean.
- */
 @Configuration
 public class AppConfig {
 

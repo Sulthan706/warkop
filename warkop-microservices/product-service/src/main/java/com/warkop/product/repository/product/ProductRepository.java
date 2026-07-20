@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ProductRepository extends JpaRepository<ProductModel, Integer> {
 
-    // [JUNIOR - NATIVE SQL] filter kategori
+
     @Query(value = """
     SELECT *
     FROM tab_product
@@ -19,7 +19,7 @@ public interface ProductRepository extends JpaRepository<ProductModel, Integer> 
     """, nativeQuery = true)
     List<ProductModel> getProductByCategory(@Param("category") String category);
 
-    // [JUNIOR - NATIVE SQL] pencarian nama, case-insensitive (ILIKE khusus PostgreSQL)
+
     @Query(value = """
     SELECT *
     FROM tab_product
@@ -27,8 +27,6 @@ public interface ProductRepository extends JpaRepository<ProductModel, Integer> 
     """, nativeQuery = true)
     List<ProductModel> searchByName(@Param("keyword") String keyword);
 
-    // [MIDDLE - NATIVE SQL] subquery berkorelasi:
-    // produk yang harganya di atas rata-rata harga kategorinya sendiri
     @Query(value = """
     SELECT p.*
     FROM tab_product p
@@ -41,7 +39,6 @@ public interface ProductRepository extends JpaRepository<ProductModel, Integer> 
     """, nativeQuery = true)
     List<ProductModel> getAboveCategoryAverage();
 
-    // [MIDDLE - NATIVE SQL] agregasi + GROUP BY per kategori
     @Query(value = """
     SELECT p.category               AS category,
            COUNT(*)                 AS total_produk,
@@ -55,8 +52,6 @@ public interface ProductRepository extends JpaRepository<ProductModel, Integer> 
     """, nativeQuery = true)
     List<Object[]> getSummaryPerCategory();
 
-    // [MIDDLE - NATIVE SQL] UPDATE bersyarat, atomik di database.
-    // Return 0 = stok tidak cukup / produk tidak ada.
     @Modifying
     @Query(value = """
     UPDATE tab_product

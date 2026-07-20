@@ -6,11 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-/**
- * Menangkap CustomExceptionDTO yang dilempar dari service,
- * sehingga controller cukup mendeklarasikan "throws CustomExceptionDTO"
- * tanpa perlu try-catch manual (pola yang sama dengan project careops).
- */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
