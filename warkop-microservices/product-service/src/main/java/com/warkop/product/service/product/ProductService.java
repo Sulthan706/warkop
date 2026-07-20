@@ -17,12 +17,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * [SPRING IoC]
- * ProductRepository tidak pernah dibuat dengan "new" —
- * IoC Container Spring yang menyuntikkannya lewat @Autowired
- * (field injection, mengikuti gaya project careops).
- */
 @Service
 public class ProductService {
 
